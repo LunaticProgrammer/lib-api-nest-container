@@ -36,3 +36,11 @@ GET /library/:bookID --> Gives the book with that ID if exists
 4. Author is a needed field
 5. Dockerized the app to make it easy for setup
 
+
+### Deployment
+The deployment is done on render using the docker containers and it is using a mongoDB cluster from mongoDB atlas
+
+**DEPLOYMENT IS CI/CD Based hence no extra steps needed just push commmit and it will automatically deploy on render**
+
+As the github repository is connected with Render
+
