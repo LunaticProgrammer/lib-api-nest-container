@@ -6,7 +6,8 @@ COPY . /app/library
 WORKDIR /app/library
 
 FROM base
+RUN cat docker.env>.env
 RUN pnpm install
 RUN pnpm run build
 EXPOSE 8000
-CMD [ "pnpm", "start:prod" ]
+CMD [ "pnpm", "start:dev" ]

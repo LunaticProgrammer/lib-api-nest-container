@@ -10,7 +10,6 @@ content-type: {{contentType}}
     "title":"newBook",
     "author":"testAuthor"
 }
-
 ###
 # Trying to create again with same name should throw error
 
@@ -22,6 +21,17 @@ content-type: {{contentType}}
     "author":"testAuthor"
 }
 
+###
+#Creating New Book with mismatched type
+POST http://localhost:3000/library
+content-type: {{contentType}}
+
+{
+    "title":1,
+    "author":"testAuthor"
+}
+
+
 # getting the books
 ###
 
@@ -29,11 +39,11 @@ GET http://localhost:3000/library?page=1&count=1
 
 ###
 # Get 1 book by ID
-GET http://localhost:3000/library/01HEK1XGS6D3YJ7A0XJAYHJFDV
+GET http://localhost:3000/library/01HEKDXS34NWCMDXVMYGBV53K3
 
 ###
 # update 1 book ID
-PATCH http://localhost:3000/library/01HEK1XGS6D3YJ7A0XJAYHJFDV
+PATCH http://localhost:3000/library/01HEKDXS34NWCMDXVMYGBV53K3
 content-type: {{contentType}}
 
 {
@@ -42,11 +52,20 @@ content-type: {{contentType}}
 
 ###
 # update 1 book ID checking body validations
-PATCH http://localhost:3000/library/01HEK1XGS6D3YJ7A0XJAYHJFDV
+PATCH http://localhost:3000/library/01HEKDXS34NWCMDXVMYGBV53K3
 content-type: {{contentType}}
 
 {
     "title":1
+}
+
+###
+# update 1 book which does not exist
+PATCH http://localhost:3000/library/01HEK1XGS6D3YJ7A0XJAYHJFDV
+content-type: {{contentType}}
+
+{
+    "title":"new Book"
 }
 
 ###
@@ -55,4 +74,4 @@ DELETE  http://localhost:3000/library/01HEK1XGS6D3YJ7A0XJAYHJFD
 
 ###
 # delete 1 book with id
-DELETE  http://localhost:3000/library/01HEK1XGS6D3YJ7A0XJAYHJFDV
+DELETE  http://localhost:3000/library/01HEKDXS34NWCMDXVMYGBV53K3
